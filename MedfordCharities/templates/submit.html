@@ -1,0 +1,14 @@
+{% extends "layout.html" %} {% block content %}
+<h2>Submit a New Charity</h2>
+<form action="{{ url_for('submit') }}" method=post>
+    <br>
+    <p class="heading">Charity Name: <input type=text name=name>
+    <p class="heading">Charity Description: <input type=text name=description>
+    <p class="heading">Charity Street Address: <input type=text name=address>
+    <p class="heading">Charity Type: <input type=text name=typeOfCharity>
+    <p class="heading">Charity Phone Number: <input type=text name=phone>
+    <p class="heading">Charity Hours: <input type=text name=hours>
+    <p class="heading">Reviews: <input type=text name=reviews>
+    <input type=submit value=Sign>
+</form>
+{% endblock %}

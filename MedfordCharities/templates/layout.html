@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<title>Medford Charities</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<ul>
+<li><a href="{{ url_for("index") }}">Home</a></li>
+<li><a href="{{ url_for("submit") }}">Submit</a></li>
+<li><a href="{{ url_for("list") }}">List</a></li>
+</ul>
+<div class=page>
+    {% block content %}{% endblock %}
+</div>
+</html>

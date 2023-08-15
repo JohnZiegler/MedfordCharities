@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Medford Charities</h2>
+    Welcome to the listing of current charities available for the community located in Medford, Oregon.
+    <hr class="solid">
+    <h3><a href="{{ url_for('submit') }}">Submit a new charity here</a></h3>
+    If you have a new charity that isn't listed, you can submit the information needed, and your charity will be added into our database for listing!
+    <hr class="solid">
+    <h3><a href="{{ url_for('list') }}">List all current charities</a></h3>
+    Click here to see a listing of all charities currently available to the community.
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %} {% block content %}
+<h2>Medford Charities</h2>
+<div id="charity_listing">
+    {% for charity in charities %}
+        <hr class="solid">
+        <p class=charity>
+        <h2>{{ charity.name }}</h2>
+        <h4>Description of the Charity:</h4> {{ charity.description }}
+        <h4>Location of the Charity: </h4>{{ charity.address }}
+        <h4>Type of Charity: </h4>{{ charity.typeOfCharity }}
+        <h4>Charity Contact Phone Number: </h4>{{ charity.phone }}
+        <h4>Hours of Operation: </h4>{{ charity.description }}
+        <h4>Reviews: </h4>{{ charity.reviews }}
+    {% endfor %}
+</div>
+    
+<script>
+    // Initializing the google maps API
+    function initMap() {
+        // Creating the map, centered on the heart of Medford, Oregon 
+        const map = new google.maps.Map(document.getElementById("map"), {zoom: 12, center: { lat: 42.3436456, lng: -122.8791443 }});
+
+    {% for charity in charities %}
+        const coord{{loop.index}} = new google.maps.Marker({position: {lat: {{charity.latitude}}, lng: {{charity.longitude}}}, map, title: "{{charity.name}}"});
+    {% endfor %}
+    }
+
+</script>
+<div id="map"></div>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrkycdV52v6SdQJ7RwN85QwzP5cNk3oF8&callback=initMap&libraries=&v=weekly" async></script>
+
+{% endblock %}
